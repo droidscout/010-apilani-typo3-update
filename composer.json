@@ -5,6 +5,7 @@
 	"type": "project",
 	"config": {
 		"allow-plugins": {
+			"cweagans/composer-patches": true,
 			"typo3/class-alias-loader": true,
 			"typo3/cms-composer-installers": true
 		},
@@ -14,6 +15,8 @@
 		"sort-packages": true
 	},
 	"require": {
+		"cweagans/composer-patches": "^1.7",
+		"netzmacher/slick": "^13.4",
 		"nitsan/ns-all-sliders": "^13.0",
 		"t3sbs/t3sbootstrap": "^5.3",
 		"typo3/cms-backend": "^13.4",
@@ -48,5 +51,12 @@
 			"type": "path",
 			"url": "./packages/*"
 		}
-	]
+	],
+	"extra": {
+		"patches": {
+	      	"t3sbs/t3sbootstrap": {
+ 		    	"Guard FlexForm conversion (array|string) + misc fixes": "patches/t3sbootstrap-flexform-guards.patch"
+      		}
+    	}
+	}
 }

@@ -1,0 +1,103 @@
+diff --git a/Classes/DataProcessing/BootstrapProcessor.php b/Classes/DataProcessing/BootstrapProcessor.php
+index 153d83a..93831a9 100644
+--- a/Classes/DataProcessing/BootstrapProcessor.php
++++ b/Classes/DataProcessing/BootstrapProcessor.php
+@@ -87,9 +87,17 @@ class BootstrapProcessor implements DataProcessorInterface
+         $cType = $processedData['data']['CType'];
+         $parentCType = '';
+         $flexFormService = GeneralUtility::makeInstance(FlexFormService::class);
+-		$flexconf = [];
++
++        $flexconf = [];
+         if (!empty($processedData['data']['tx_t3sbootstrap_flexform'])) {
+-            $flexconf = $flexFormService->convertFlexFormContentToArray($processedData['data']['tx_t3sbootstrap_flexform']);
++            $rawFlex = $processedData['data']['tx_t3sbootstrap_flexform'];
++            if (is_array($rawFlex)) {
++                $flexconf = $rawFlex; // bereits geparst
++            } elseif (is_string($rawFlex) && trim($rawFlex) !== '') {
++                $flexconf = $flexFormService->convertFlexFormContentToArray($rawFlex); // XML -> Array
++            } else {
++               $flexconf = [];
++            }
+         }
+         $parentflexconf = [];
+         $parentContainer = [];
+@@ -106,11 +114,18 @@ class BootstrapProcessor implements DataProcessorInterface
+             $parentData = BackendUtility::getRecord('tt_content', $parentUid, 'uid, CType, tx_t3sbootstrap_flexform, tx_container_parent');
+             $parentCType = $parentData['CType'];
+ 			if (!empty($parentData['tx_t3sbootstrap_flexform'])) {
+-	            $parentflexconf = $flexFormService->convertFlexFormContentToArray($parentData['tx_t3sbootstrap_flexform']);
+-	            if (is_string($parentCType)) {
+-	                $parentflexconf = $flexformHelper->addMissingElements($parentflexconf, $parentCType, $t3sbsElement);
+-	            }
+-			}
++                $rawParentFlex = $parentData['tx_t3sbootstrap_flexform'];
++                if (is_array($rawParentFlex)) {
++                    $parentflexconf = $rawParentFlex;
++                } elseif (is_string($rawParentFlex) && trim($rawParentFlex) !== '') {
++                    $parentflexconf = $flexFormService->convertFlexFormContentToArray($rawParentFlex);
++                } else {
++                   $parentflexconf = [];
++                }
++                if (is_string($parentCType)) {
++                    $parentflexconf = $flexformHelper->addMissingElements($parentflexconf, $parentCType, $t3sbsElement);
++                }
++            }
+             $parentContainer = $parentData['tx_container_parent'];
+         }
+ 
+@@ -216,7 +231,15 @@ class BootstrapProcessor implements DataProcessorInterface
+                 ->getProcessedData($processedData, $flexconf);
+             }
+             if ($cType === 't3sbs_assets') {
+-                $pi_flexconf = $flexFormService->convertFlexFormContentToArray($processedData['data']['pi_flexform']);
++                if($cType === 't3sbs_assets') {
++                    $pi_flexconf = [];
++                    $piRaw = $processedData['data']['pi_flexform'] ?? null;
++                    if(is_array($piRaw)) {
++                        $pi_flexconf = $piRaw; // bereits geparst
++                    } elseif(is_string($piRaw) && trim($piRaw) !== '') {
++                        $pi_flexconf = $flexFormService->convertFlexFormContentToArray($piRaw); // XML -> Array
++                    }
++                }
+                 if (!empty($pi_flexconf)) {
+                     $processedData['assets']['jquery'] = $pi_flexconf['settings']['jquery'];
+                     $processedData['assets']['priority'] = $pi_flexconf['settings']['priority'];
+@@ -347,7 +370,7 @@ class BootstrapProcessor implements DataProcessorInterface
+             $mediaElementHelper = GeneralUtility::makeInstance(MediaElementHelper::class);
+             $processedData = $mediaElementHelper->getProcessedData($processedData, $extConf, $contentObjectConfiguration['settings.']['breakpoint'], $parentflexconf);
+             $fileRepository = GeneralUtility::makeInstance(FileRepository::class);
+-            $fileObjects = $fileRepository->findByRelation('tt_content ', 'assets', $processedData['data']['uid']);
++            $fileObjects = $fileRepository->findByRelation('tt_content', 'assets', $processedData['data']['uid']);
+             $fileParts = [];
+             $processedData['addmedia']['ratioClass'] = 'ratio-16x9';
+             $processedData['addmedia']['origImageZoom'] = $processedData['data']['tx_t3sbootstrap_zoom_orig'];
+@@ -510,6 +533,7 @@ class BootstrapProcessor implements DataProcessorInterface
+         $i = 0;
+         $e = 0;
+ 
++        $erg = [];
+         while ($row = $result->fetchAssociative()) {
+             if (!empty($row['tx_t3sbootstrap_chapter'])) {
+                 if ( $row['tx_t3sbootstrap_chapter'] == 1 ) {
+@@ -526,7 +550,7 @@ class BootstrapProcessor implements DataProcessorInterface
+ 
+         $uid = $processedData['data']['uid'];
+ 
+-		$processedData['chapter-index'] = $erg[$uid]['index'];
++		$processedData['chapter-index'] = $erg[$uid]['index'] ?? '';
+ 
+         return $processedData;
+     }
+diff --git a/Classes/DataProcessing/GalleryProcessor.php b/Classes/DataProcessing/GalleryProcessor.php
+index e25911b..607117d 100644
+--- a/Classes/DataProcessing/GalleryProcessor.php
++++ b/Classes/DataProcessing/GalleryProcessor.php
+@@ -44,6 +44,7 @@ class GalleryProcessor implements DataProcessorInterface
+     protected $colPos;
+     protected $parentgridColPos;
+     protected $minimumWidth;
++    protected $minimumWidthIfEmpty;
+     protected $ratioWithHeight;
+     protected $pageContainer;
+     protected $rowWidth;
