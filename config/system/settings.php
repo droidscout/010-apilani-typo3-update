@@ -1,7 +1,7 @@
 <?php
 return [
     'BE' => [
-        'debug' => true,
+        'debug' => false,
         'installToolPassword' => '$argon2i$v=19$m=65536,t=16,p=1$N1pYbUdISmdFZmZLd2NESw$sk1DyFzkj74zv6qguuYjsM59+qYAXfEbpiCYXScg/8I',
         'passwordHashing' => [
             'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\Argon2iPasswordHash',
@@ -46,22 +46,36 @@ return [
             'automaticInstallation' => '1',
             'offlineMode' => '0',
         ],
+        'iconpack' => [
+            'autoAddAssets' => '1',
+            'autoConfigRte' => '1',
+            'defaultConfig' => 'EXT:iconpack/Configuration/Iconpack/Default.yaml',
+            'rteSvg' => '1',
+        ],
+        'iconpack_fontawesome' => [
+            'configFile' => '',
+            'stylesEnabled' => '',
+            'version' => '6',
+        ],
         'ns_all_sliders' => [
             'jquery' => '0',
         ],
+        'scheduler' => [
+            'maxLifetime' => '1440',
+        ],
         't3sbootstrap' => [
             'animateCss' => '0',
-            'bootswatch' => 'none',
+            'bootswatch' => 'Yeti',
             'cTypeClass' => '0',
             'chapter' => '0',
             'color' => '1',
             'container' => '1',
             'cssCodeEditor' => '0',
             'customHeaderClass' => '',
-            'customScss' => '0',
+            'customScss' => '1',
             'customSubtitleColor' => '',
             'customTitleColor' => '',
-            'editScss' => '0',
+            'editScss' => '1',
             'extNews' => '1',
             'extraStyle' => '0',
             'figureClass' => '',
@@ -80,7 +94,7 @@ return [
             'origimage' => '0',
             'preview' => '1',
             'previewClosedCollapsible' => '0',
-            'ratio' => '0',
+            'ratio' => '1',
             'sectionOrder' => '0',
             'sitepackage' => '0',
             'spacing' => '0',
@@ -92,7 +106,7 @@ return [
         'cacheHash' => [
             'enforceValidation' => true,
         ],
-        'debug' => true,
+        'debug' => false,
         'disableNoCacheParameter' => true,
         'passwordHashing' => [
             'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\Argon2iPasswordHash',
@@ -112,7 +126,7 @@ return [
                     'writerConfiguration' => [
                         'notice' => [
                             'TYPO3\CMS\Core\Log\Writer\FileWriter' => [
-                                'disabled' => false,
+                                'disabled' => true,
                             ],
                         ],
                     ],
@@ -149,10 +163,10 @@ return [
                 ],
             ],
         ],
-        'devIPmask' => '*',
-        'displayErrors' => 1,
+        'devIPmask' => '',
+        'displayErrors' => 0,
         'encryptionKey' => '1c7b7e68ca74a3820572a1abe95aebc5688812236ef2e926d3a023adab00718e1938cadaee6fc29a41e02ef34ef0dffe',
-        'exceptionalErrors' => 12290,
+        'exceptionalErrors' => 4096,
         'features' => [
             'extbase.consistentDateTimeHandling' => true,
             'frontend.cache.autoTagging' => true,

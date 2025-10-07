@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "165fbfbb932a016d2bf0c78aa66c7577",
+    "content-hash": "7778ab2191d6ffdd3d97bdc860c18247",
     "packages": [
         {
             "name": "b13/container",
@@ -2348,6 +2348,199 @@
                 "source": "https://github.com/php-fig/log/tree/3.0.2"
             },
             "time": "2024-09-11T13:17:53+00:00"
+        },
+        {
+            "name": "quellenform/t3x-iconpack",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/quellenform/t3x-iconpack.git",
+                "reference": "fe5115effce3db3cd6cd889f76dff600ab764ac1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/quellenform/t3x-iconpack/zipball/fe5115effce3db3cd6cd889f76dff600ab764ac1",
+                "reference": "fe5115effce3db3cd6cd889f76dff600ab764ac1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.0",
+                "typo3/cms-core": ">=10.4.11 <12 || ~12.4.7 || ^13 || 14.*.*@dev"
+            },
+            "replace": {
+                "typo3-ter/iconpack": "self.version"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "iconpack"
+                },
+                "branch-alias": {
+                    "dev-main": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Quellenform\\Iconpack\\": "Classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Stephan Kellermayr",
+                    "email": "typo3@quellenform.at",
+                    "homepage": "https://www.quellenform.at/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Provides an iconpack-registry for custom iconpacks.",
+            "homepage": "https://extensions.typo3.org/extension/iconpack",
+            "keywords": [
+                "CKEditor",
+                "extension",
+                "iconfont",
+                "icons",
+                "typo3",
+                "webfont"
+            ],
+            "support": {
+                "issues": "https://github.com/quellenform/t3x-iconpack/issues",
+                "source": "https://github.com/quellenform/t3x-iconpack"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.me/quellenform",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/quellenform",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-09-19T18:18:02+00:00"
+        },
+        {
+            "name": "quellenform/t3x-iconpack-fontawesome",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/quellenform/t3x-iconpack-fontawesome.git",
+                "reference": "c86fed650b93e584fbe38b37905d54c7c2743c99"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/quellenform/t3x-iconpack-fontawesome/zipball/c86fed650b93e584fbe38b37905d54c7c2743c99",
+                "reference": "c86fed650b93e584fbe38b37905d54c7c2743c99",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.0",
+                "quellenform/t3x-iconpack": "^1.2.1",
+                "typo3/cms-core": ">=10.4 <14 || 14.*.*@dev"
+            },
+            "replace": {
+                "typo3-ter/iconpack-fontawesome": "self.version"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "iconpack_fontawesome"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Quellenform\\IconpackFontawesome\\": "Classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Stephan Kellermayr",
+                    "email": "typo3@quellenform.at",
+                    "homepage": "https://www.quellenform.at/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This Extension registers an Iconpack-Provider for EXT:iconpack which allows you to use the \"Font Awesome Icons\" in TYPO3.",
+            "homepage": "https://extensions.typo3.org/extension/iconpack_fontawesome",
+            "keywords": [
+                "CKEditor",
+                "extension",
+                "iconfont",
+                "icons",
+                "typo3",
+                "webfont"
+            ],
+            "support": {
+                "issues": "https://github.com/quellenform/t3x-iconpack-fontawesome/issues",
+                "source": "https://github.com/quellenform/t3x-iconpack-fontawesome"
+            },
+            "time": "2025-07-25T12:51:34+00:00"
+        },
+        {
+            "name": "quellenform/t3x-lib-jquery",
+            "version": "5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/quellenform/t3x-lib-jquery.git",
+                "reference": "db7f439af1406ba4b02a8145a7381ece502bd7c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/quellenform/t3x-lib-jquery/zipball/db7f439af1406ba4b02a8145a7381ece502bd7c1",
+                "reference": "db7f439af1406ba4b02a8145a7381ece502bd7c1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1.0",
+                "typo3/cms-core": "^12 || ^13 || 14.*.*@dev"
+            },
+            "replace": {
+                "typo3-ter/lib_jquery": "self.version"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "lib_jquery"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Quellenform\\LibJquery\\": "Classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Stephan Kellermayr",
+                    "email": "typo3@quellenform.at",
+                    "homepage": "https://www.quellenform.at/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Integrates the jQuery-library from CDN with a local fallback if requested library is not available. All relevant versions of jQuery (including minified and gzipped-versions) are shipped with this extension.",
+            "homepage": "https://extensions.typo3.org/extension/lib_jquery",
+            "keywords": [
+                "cdn",
+                "extension",
+                "jquery",
+                "library",
+                "typo3"
+            ],
+            "support": {
+                "issues": "https://github.com/quellenform/t3x-lib-jquery/issues",
+                "source": "https://github.com/quellenform/t3x-lib-jquery"
+            },
+            "time": "2025-09-19T13:25:00+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -6806,6 +6999,61 @@
             "support": {
                 "chat": "https://typo3.org/help",
                 "docs": "https://docs.typo3.org/c/typo3/cms-rte-ckeditor/main/en-us",
+                "issues": "https://forge.typo3.org",
+                "source": "https://github.com/typo3/typo3"
+            },
+            "time": "2025-09-09T08:43:17+00:00"
+        },
+        {
+            "name": "typo3/cms-scheduler",
+            "version": "v13.4.18",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TYPO3-CMS/scheduler.git",
+                "reference": "e2268cd4396e9f4f25d9429fab7da7c1bcc8b98d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TYPO3-CMS/scheduler/zipball/e2268cd4396e9f4f25d9429fab7da7c1bcc8b98d",
+                "reference": "e2268cd4396e9f4f25d9429fab7da7c1bcc8b98d",
+                "shasum": ""
+            },
+            "require": {
+                "typo3/cms-core": "13.4.18"
+            },
+            "conflict": {
+                "typo3/cms": "*"
+            },
+            "type": "typo3-cms-framework",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "scheduler"
+                },
+                "branch-alias": {
+                    "dev-main": "13.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TYPO3\\CMS\\Scheduler\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "TYPO3 Core Team",
+                    "email": "typo3cms@typo3.org",
+                    "role": "Developer"
+                }
+            ],
+            "description": "TYPO3 CMS Scheduler - Schedule tasks to run once or periodically at a specific time.",
+            "homepage": "https://typo3.org",
+            "support": {
+                "chat": "https://typo3.org/help",
+                "docs": "https://docs.typo3.org/c/typo3/cms-scheduler/main/en-us",
                 "issues": "https://forge.typo3.org",
                 "source": "https://github.com/typo3/typo3"
             },
