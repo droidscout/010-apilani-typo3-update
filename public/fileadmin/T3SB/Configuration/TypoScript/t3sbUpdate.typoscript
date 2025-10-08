@@ -1,0 +1,14 @@
+[2 in tree.rootLineIds]
+bootstrap.config.absRefPrefix = 1
+page.config.index_enable = 1
+[END]
+
+[56 in tree.rootLineIds]
+bootstrap.config.absRefPrefix = 1
+page.config.index_enable = 1
+[END]
+
+[71 in tree.rootLineIds]
+bootstrap.config.absRefPrefix = 1
+[END]
+

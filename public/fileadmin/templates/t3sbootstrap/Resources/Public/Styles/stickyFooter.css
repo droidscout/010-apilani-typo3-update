@@ -1,0 +1,18 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+#page-footer {
+  position: relative;
+  bottom: 0;
+  width: 97.7%;
+}
+
+/*
+#page-wrapper {
+    margin-bottom: 5rem;
+}
+*/

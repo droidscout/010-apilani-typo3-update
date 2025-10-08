@@ -1,0 +1,27 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{data.header_layout} != 100">
+	<f:if condition="{data.header} || {data.subheader} || {data.date}">
+		<header class="header-{data.uid}{f:if(condition: '{headerClass}',then: ' {headerClass}')}">
+			<f:render partial="Header/Header" arguments="{
+				header: data.header,
+				layout: data.header_layout,
+				link: data.header_link,
+				class: hClass,
+				hLinkClass: hLinkClass,
+				default: settings.defaultHeaderType
+				}" />
+			<f:render partial="Header/SubHeader" arguments="{
+				subheader: data.subheader,
+				layout: data.header_layout,
+				subheaderColor: settings.subheaderColor,
+				default: settings.defaultHeaderType
+				}" />
+			<f:render partial="Header/Date" arguments="{
+				date: data.date,
+				dateColor: settings.subheaderColor,
+				dateformat: settings.dateformat
+				}" />
+		</header>
+	</f:if>
+</f:if>
+</html>

@@ -1,0 +1,69 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	xmlns:t3sb="http://typo3.org/ns/T3SBS/T3sbootstrap/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+	<f:if condition="{files}">
+		<div class="wrapper-parent gallery">
+			<f:for each="{files}" as="row" iteration="fileIterator">
+				<div class="row mb-2">
+					<f:for each="{row}" as="file">
+						<f:if condition="{data.imagecols} == 1">
+							<div class="col-12">
+						</f:if>
+						<f:if condition="{data.imagecols} == 2">
+							<div class="col-6">
+						</f:if>
+						<f:if condition="{data.imagecols} == 3">
+							<div class="col-6 col-sm-4">
+						</f:if>
+						<f:if condition="{data.imagecols} == 4">
+							<div class="col-6 col-sm-4 col-md-3">
+						</f:if>
+						<f:if condition="{data.imagecols} == 6">
+							<div class="col-6 col-sm-4 col-md-2">
+						</f:if>
+						<f:if condition="{data.imagecols} == 12">
+							<div class="col-4 col-sm-3 col-md-2 col-lg-1">
+						</f:if>
+						<f:if condition="{file.type} == 2">
+							<f:if condition="{file.link}">
+								<f:then>
+									<f:link.typolink parameter="{file.link}">
+										<f:render section="Image" arguments="{_all}" />
+									</f:link.typolink>
+								</f:then>
+								<f:else>
+									<a href="{f:uri.image(image:file, width:'{settings.media.popup.width}', height:'{settings.media.popup.height}')}" data-caption="{file.description}">
+										<f:render section="Image" arguments="{_all}" />
+									</a>
+								</f:else>
+							</f:if>
+						</f:if>
+						<f:if condition="{file.type} == 4">
+							<div class="embed-responsive embed-responsive-16by9">
+								<f:media
+									class="embed-responsive-item"
+									file="{file}"
+									width="{data.imagewidth}"
+									alt="{file.alternative}"
+									title="{file.title}" />
+							</div>
+						</f:if>
+						</div>
+					</f:for>
+				</div>
+			</f:for>
+		</div>
+	</f:if>
+</f:section>
+</html>
+
+<f:section name="Image">
+	<t3sb:media file="{file}" title="{file.title}" alt="{f:if(condition: file.alternative, then: '{file.alternative}', else: 'image-{file.uid}')}"
+	 class="img-fluid mx-auto d-block{f:if(condition: settings.lazyLoad, then: ' lazy')}{f:if(condition: '{data.imageborder}',then: ' img-thumbnail')}"
+	  width="{data.imagewidth}" height="{data.imageheight}c" breakpoints="{
+		0: {'cropVariant': 'default', 'media': '(min-width: 1200px)', 'srcset': '385, 576, 768, 992, 1200'},
+		1: {'cropVariant': 'tablet', 'media': '(min-width: 576px)', 'srcset': '385, 576, 768, 992, 1199'},
+		2: {'cropVariant': 'mobile', 'media': '(max-width: 575px)', 'srcset': '60, 100, 200, 385, 575'}
+	}" picturefill="false" lazyload="{settings.lazyLoad}" />
+</f:section>

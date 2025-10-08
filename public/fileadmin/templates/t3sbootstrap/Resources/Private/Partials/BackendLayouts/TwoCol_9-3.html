@@ -1,0 +1,72 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<div class="row content-row">
+		<f:switch expression="{data.tx_t3sbootstrap_mobileOrder}">
+			<f:case value="top">
+				<f:render section="Default" arguments="{_all}" />
+			</f:case>
+			<f:case value="bottom">
+				<f:render section="RightBottom" arguments="{_all}" />
+			</f:case>
+			<f:case value="leftTop">
+				<f:render section="Default" arguments="{_all}" />
+			</f:case>
+			<f:case value="leftBottom">
+				<f:render section="Default" arguments="{_all}" />
+			</f:case>
+			<f:case value="rightTop">
+				<f:render section="Default" arguments="{_all}" />
+			</f:case>
+			<f:case value="rightBottom">
+				<f:render section="RightBottom" arguments="{_all}" />
+			</f:case>
+			<f:defaultCase>
+				<f:render section="Default" arguments="{_all}" />
+			</f:defaultCase>
+		</f:switch>
+	</div>
+</html>
+
+
+<f:section name="Default">
+	<aside class="col-{gridBreakpoint}-{colAside} order-{gridBreakpoint}-2{f:if(condition: settings.globalPaddingTop, then: ' {settings.globalPaddingTop}')}">
+		<f:if condition="{config.sidebar.right}">
+			<f:render partial="Page/{config.sidebar.right}" arguments="{subNavigation: subNavigation, sectionMenu: sectionMenu}" />
+		</f:if>
+		<f:if condition="{settings.slideRightAside}">
+			<f:then>
+				<f:cObject typoscriptObjectPath="lib.dynamicContentSlide" data="{pageUid: '{data.uid}', colPos: '2'}"/>
+			</f:then>
+			<f:else>
+				<f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '2'}"/>
+			</f:else>
+		</f:if>
+	</aside>
+	<main class="col-{gridBreakpoint}-{colMain} main-content order-{gridBreakpoint}-1{f:if(condition: settings.globalPaddingTop, then: ' {settings.globalPaddingTop}')}">
+		<f:if condition="{config.general.pageTitle} == 'content'">
+			<f:render partial="Page/Title" arguments="{_all}" />
+		</f:if>
+		<f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '0'}"/>
+	</main>
+</f:section>
+
+<f:section name="RightBottom">
+	<main class="col-{gridBreakpoint}-{colMain} main-content{f:if(condition: settings.globalPaddingTop, then: ' {settings.globalPaddingTop}')}">
+		<f:if condition="{config.general.pageTitle} == 'content'">
+			<f:render partial="Page/Title" arguments="{_all}" />
+		</f:if>
+		<f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '0'}"/>
+	</main>
+	<aside class="col-{gridBreakpoint}-{colAside}{f:if(condition: settings.globalPaddingTop, then: ' {settings.globalPaddingTop}')}">
+		<f:if condition="{config.sidebar.right}">
+			<f:render partial="Page/{config.sidebar.right}" arguments="{subNavigation: subNavigation, sectionMenu: sectionMenu}" />
+		</f:if>
+		<f:if condition="{settings.slideRightAside}">
+			<f:then>
+				<f:cObject typoscriptObjectPath="lib.dynamicContentSlide" data="{pageUid: '{data.uid}', colPos: '2'}"/>
+			</f:then>
+			<f:else>
+				<f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '2'}"/>
+			</f:else>
+		</f:if>
+	</aside>
+</f:section>
