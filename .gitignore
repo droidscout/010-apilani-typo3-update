@@ -5,4 +5,6 @@ nbproject
 !/var/labels
 /vendor
 /public/*
+!/public/fileadmin/templates/
+!/public/fileadmin/T3SB/
 !/public/.htaccess
