@@ -1,7 +1,7 @@
 <?php
 return [
     'BE' => [
-        'debug' => false,
+        'debug' => true,
         'installToolPassword' => '$argon2i$v=19$m=65536,t=16,p=1$N1pYbUdISmdFZmZLd2NESw$sk1DyFzkj74zv6qguuYjsM59+qYAXfEbpiCYXScg/8I',
         'passwordHashing' => [
             'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\Argon2iPasswordHash',
@@ -57,6 +57,23 @@ return [
             'stylesEnabled' => '',
             'version' => '6',
         ],
+        'ke_search' => [
+            'additionalWordCharacters' => '',
+            'allowEmptySearch' => '1',
+            'enableExplicitAnd' => '0',
+            'enablePartSearch' => '1',
+            'finishNotification' => '0',
+            'indexTagTitlesAsHiddenContent' => '1',
+            'loglevel' => 'ERROR',
+            'multiplyValueToTitle' => '1',
+            'notificationRecipient' => '',
+            'notificationSender' => 'no_reply@domain.com',
+            'notificationSubject' => '[KE_SEARCH INDEXER NOTIFICATION]',
+            'pathCatdoc' => '/usr/bin/',
+            'pathPdfinfo' => '/usr/bin/',
+            'pathPdftotext' => '/usr/bin/',
+            'searchWordLength' => '4',
+        ],
         'ns_all_sliders' => [
             'jquery' => '0',
         ],
@@ -76,8 +93,8 @@ return [
             'customSubtitleColor' => '',
             'customTitleColor' => '',
             'editScss' => '1',
-            'extNews' => '1',
-            'extraStyle' => '0',
+            'extNews' => '0',
+            'extraStyle' => '1',
             'figureClass' => '',
             'flexformExtend' => '0',
             'flexformMinCol' => '0',
@@ -97,7 +114,7 @@ return [
             'ratio' => '1',
             'sectionOrder' => '0',
             'sitepackage' => '0',
-            'spacing' => '0',
+            'spacing' => '1',
             't3sbconcatenate' => '0',
             't3sbminify' => '0',
         ],
@@ -106,7 +123,7 @@ return [
         'cacheHash' => [
             'enforceValidation' => true,
         ],
-        'debug' => false,
+        'debug' => true,
         'disableNoCacheParameter' => true,
         'passwordHashing' => [
             'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\Argon2iPasswordHash',
@@ -163,6 +180,7 @@ return [
                 ],
             ],
         ],
+        'defaultScheme' => 'https',
         'devIPmask' => '',
         'displayErrors' => 0,
         'encryptionKey' => '1c7b7e68ca74a3820572a1abe95aebc5688812236ef2e926d3a023adab00718e1938cadaee6fc29a41e02ef34ef0dffe',

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7778ab2191d6ffdd3d97bdc860c18247",
+    "content-hash": "8ac6c859678cdc4dfb96e10688441ca1",
     "packages": [
         {
             "name": "b13/container",
@@ -5546,6 +5546,82 @@
                 "source": "https://github.com/t3solution/t3sbootstrap/tree/v5.3.25"
             },
             "time": "2025-09-27T09:47:45+00:00"
+        },
+        {
+            "name": "tpwd/ke_search",
+            "version": "v6.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tpwd/ke_search.git",
+                "reference": "5d2f562ba8c3d6c83f9117ea405c1810d99bfdbf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tpwd/ke_search/zipball/5d2f562ba8c3d6c83f9117ea405c1810d99bfdbf",
+                "reference": "5d2f562ba8c3d6c83f9117ea405c1810d99bfdbf",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pdo": "*",
+                "php": "^8.1",
+                "typo3/cms-core": "^12.3 || ^13"
+            },
+            "replace": {
+                "teaminmedias-pluswerk/ke_search": "self.version",
+                "typo3-ter/ke_search": "self.version"
+            },
+            "require-dev": {
+                "ext-dom": "*",
+                "ext-json": "*",
+                "ext-libxml": "*",
+                "ext-zip": "*",
+                "friendsofphp/php-cs-fixer": "^3",
+                "phpstan/phpstan": "^1",
+                "phpunit/phpunit": "^10",
+                "typo3/cms-dashboard": "^12 || ^13",
+                "typo3/cms-indexed-search": "^12 || ^13",
+                "typo3/cms-info": "^12 || ^13",
+                "typo3/cms-install": "^12 || ^13",
+                "typo3/cms-scheduler": "^12 || ^13",
+                "typo3/coding-standards": "^0.8.0"
+            },
+            "suggest": {
+                "typo3/cms-dashboard": "Use widgets in dashboard"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "web-dir": ".Build/web",
+                    "extension-key": "ke_search"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tpwd\\KeSearch\\": "Classes"
+                },
+                "classmap": [
+                    "Classes"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Search Extension for TYPO3, including faceting search functions.",
+            "homepage": "https://www.typo3-macher.de/en/facetted-search-ke-search/",
+            "keywords": [
+                "TYPO3 CMS",
+                "faceted search",
+                "faceting",
+                "ke_search",
+                "kesearch",
+                "search"
+            ],
+            "support": {
+                "issues": "https://github.com/tpwd/ke_search/issues",
+                "source": "https://github.com/tpwd/ke_search/tree/v6.5.0"
+            },
+            "time": "2025-08-06T15:00:14+00:00"
         },
         {
             "name": "typo3/class-alias-loader",

@@ -21,6 +21,7 @@
 		"quellenform/t3x-iconpack-fontawesome": "^1.2",
 		"quellenform/t3x-lib-jquery": "^5.0",
 		"t3sbs/t3sbootstrap": "^5.3",
+		"tpwd/ke_search": "^6.5",
 		"typo3/cms-backend": "^13.4",
 		"typo3/cms-belog": "^13.4",
 		"typo3/cms-beuser": "^13.4",
